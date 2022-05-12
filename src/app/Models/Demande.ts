@@ -6,6 +6,8 @@ export class Demande{
     etat !: String;
     event !:Event;
     appuser!: appuser;
+    name_user!:String;
+    name_event!:String;
 
 
 }

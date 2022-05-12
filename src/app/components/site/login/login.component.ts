@@ -1,5 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { LoginRequest } from 'src/app/Models/LoginRequest';
 import { RegistrationRequest } from 'src/app/Models/Registration';
 import { UserServiceService } from 'src/app/Services/user-service.service';
@@ -14,8 +15,13 @@ export class LoginComponent implements OnInit {
   user:any = new RegistrationRequest(); 
   
   user1:any = new LoginRequest(); 
-  constructor(private serviceuser :UserServiceService) { }
-
+  constructor(private serviceuser :UserServiceService,private router: Router) { }
+  email!: string;
+  password!: string;
+  msg = '';
+  invalidLogin = false
+  
+  @Input() error!: string | null;
   ngOnInit(): void {
   }
   adduser(){
@@ -23,8 +29,28 @@ export class LoginComponent implements OnInit {
    
     );
     
+    
   location.reload()
     }
+    checkLogin() {
+      (this.serviceuser.authenticate(this.user).subscribe(
+          data => { 
+            this.router.navigate(['/event'])
+            this.invalidLogin = false
+          },
+          error => {
+            this.invalidLogin = true
+            this.error = error.message;
+  
+          }
+        )
+      );
+  
+    }
+    send(){
+      return this.serviceuser.send(this.user1).subscribe();
+    }
+  
     login(){
       return this.serviceuser.Login(this.user1).subscribe();
       

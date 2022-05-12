@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { appuser } from 'src/app/Models/AppUser';
+import { RegistrationRequest } from 'src/app/Models/Registration';
 
 @Component({
   selector: 'app-back',
@@ -7,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BackComponent implements OnInit {
 
+  user:any = new appuser(); 
   constructor() { }
 
   ngOnInit(): void {
