@@ -6,7 +6,9 @@ export class appuser{
     lastname !: string;
     password !: string;
     email !: string;
-    appUserRole ! : AppUserRole
-    locked !: boolean 
-    enabled !: boolean
+    appUserRole ! : AppUserRole;
+    locked !: boolean ;
+    enabled !: boolean;
+    
+    image !: string;
 }

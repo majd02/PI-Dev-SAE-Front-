@@ -1,6 +1,7 @@
 export class Event{
     id !: number;
     nom !: string;
+    image !: string;
     description !: string;
     summary!: string;
     location !: string;

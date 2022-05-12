@@ -3,4 +3,5 @@ export class RegistrationRequest {
       lastname  !:string ;
 	 email  !:string ;
 	 password  !:string ;
+	 entreprise  !:string ;
 }

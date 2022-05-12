@@ -2,10 +2,9 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <!-- bootstrap 4.3.1 -->
  
-  <title>Worki | Home</title>
+  <title>Business Buddies</title>
 </head>
 <body>
 
@@ -30,7 +29,7 @@
       <!-- /LANDING INFO PRETITLE -->
 
       <!-- LANDING INFO TITLE -->
-      <h1 class="landing-info-title">Worki</h1>
+      <h1 class="landing-info-title">Business Buddies</h1>
       <!-- /LANDING INFO TITLE -->
 
       <!-- LANDING INFO TEXT -->
@@ -56,7 +55,7 @@
       <!-- FORM BOX -->
       <div class="form-box login-register-form-element">
         <!-- FORM BOX DECORATION -->
-        <img class="form-box-decoration overflowing" src="img/landing/rocket.png" alt="rocket">
+        <img class="form-box-decoration overflowing"   alt="rocket">
         <!-- /FORM BOX DECORATION -->
 
         <!-- FORM BOX TITLE -->
@@ -132,7 +131,7 @@
             <!-- FORM ITEM -->
             <div class="form-item">
               <!-- BUTTON -->
-              <button class="button medium primary" (click)="login()">Register Now!</button>
+              <button class="button medium primary" (click)="checkLogin()">Register Now!</button>
               <!-- /BUTTON -->
             </div>
             <!-- /FORM ITEM -->
@@ -194,7 +193,7 @@
       <!-- FORM BOX -->
       <div class="form-box login-register-form-element">
         <!-- FORM BOX DECORATION -->
-        <img class="form-box-decoration" src="img/landing/rocket.png" alt="rocket">
+        <img class="form-box-decoration"  alt="rocket">
         <!-- /FORM BOX DECORATION -->
 
         <!-- FORM BOX TITLE -->
@@ -215,6 +214,54 @@
               <div class="form-input">
                 <label for="register-username">Username</label>
                 <input type="text" id="register-username"  [(ngModel)]="user.email" name="register_username">
+              </div>
+              <!-- /FORM INPUT -->
+            </div>
+            <!-- /FORM ITEM -->
+          </div>
+          <div class="form-row">
+            <!-- FORM ITEM -->
+            <div class="form-item">
+              <!-- FORM INPUT -->
+              <div class="form-input">
+                <label for="register-username">firstname</label>
+                <input type="text" id="register-username"  [(ngModel)]="user.firstname" name="register_username">
+              </div>
+              <!-- /FORM INPUT -->
+            </div>
+            <!-- /FORM ITEM -->
+          </div>
+          <div class="form-row">
+            <!-- FORM ITEM -->
+            <div class="form-item">
+              <!-- FORM INPUT -->
+              <div class="form-input">
+                <label for="register-username">lastname</label>
+                <input type="text" id="register-username"  [(ngModel)]="user.lastname" name="register_username">
+              </div>
+              <!-- /FORM INPUT -->
+            </div>
+            <!-- /FORM ITEM -->
+          </div>
+          <div class="form-row">
+            <!-- FORM ITEM -->
+            <div class="form-item">
+              <!-- FORM INPUT -->
+              <div class="form-input">
+                <label for="register-username">entreprise</label>
+                <input type="text" id="register-username"  [(ngModel)]="user.entreprise" name="register_username">
+              </div>
+              <!-- /FORM INPUT -->
+            </div>
+            <!-- /FORM ITEM -->
+          </div>
+          <div class="form-row">
+            <!-- FORM ITEM -->
+            <div class="form-item">
+              <!-- FORM INPUT -->
+              <div class="form-input">
+                <label for="register-username">lastname</label>
+                <input type="file" id="register-username"  [(ngModel)]="user.image" name="register_username">
               </div>
               <!-- /FORM INPUT -->
             </div>
