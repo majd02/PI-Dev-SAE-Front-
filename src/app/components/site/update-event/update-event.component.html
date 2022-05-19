@@ -1,0 +1,91 @@
+<div class="preloader">
+    <div class="lds-ripple">
+      <div class="lds-pos"></div>
+      <div class="lds-pos"></div>
+    </div>
+  </div>
+  <!-- ============================================================== -->
+  <!-- Main wrapper - style you can find in pages.scss -->
+  <!-- ============================================================== -->
+  <div
+    id="main-wrapper"
+    data-layout="vertical"
+    data-navbarbg="skin5"
+    data-sidebartype="full"
+    data-sidebar-position="absolute"
+    data-header-position="absolute"
+    data-boxed-layout="full"
+  >
+  
+<app-back></app-back>
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb">
+      <div class="row">
+        <div class="col-12 d-flex no-block align-items-center">
+          <h4 class="page-title">Tables</h4>
+          <div class="ms-auto text-end">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">
+                  Library
+                </li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+<h3>Update Employee</h3>
+<div style="width: 400px;">
+  <form >
+    <div class="form-group">
+      <label for="name"> Name</label>
+      <input type="text" class="form-control" id="name" required [(ngModel)]="event.name" name="name">
+    </div>
+
+    <div class="form-group">
+      <label for="name">Location</label>
+      <input type="text" class="form-control" id="location" required [(ngModel)]="event.location" name="location">
+    </div>
+
+    <div class="form-group">
+        <label for="name">description</label>
+        <input type="text" class="form-control" id="description" required [(ngModel)]="event.description" name="description">
+      </div>
+      <div class="form-group">
+        <label for="name">summary</label>
+        <input type="text" class="form-control" id="description" required [(ngModel)]="event.summary" name="summary">
+      </div>
+      <div class="form-group">
+        <label for="name">nombre de place </label>
+        <input type="text" class="form-control" id="description" required [(ngModel)]="event.nbplace" name="nbplace">
+      </div>
+      <div class="form-group">
+        <label for="name">nombre de place min </label>
+        <input type="text" class="form-control" id="description" required [(ngModel)]="event.nbplacemin" name="nbplacemin">
+      </div>
+      <div class="form-group">
+        <label for="name">image</label>
+        <input type="file" class="form-control" id="description" required [(ngModel)]="event.image" name="image">
+      </div>
+      <div class="form-group">
+        <label for="name">date debut</label>
+        <input type="text" class="form-control" id="description" required [(ngModel)]="event.datedebut" name="datedebut">
+      </div>
+      <div class="form-group">
+        <label for="name">date fin </label>
+        <input type="text" class="form-control" id="description" required [(ngModel)]="event.datefin" name="datefin">
+      </div>
+      <button (click)="updateevent()" type="button"
+      
+      class="btn btn-primary m-t-15 waves-effect">Add</button>
+  </form>
+</div>
+</div>
+</div> 

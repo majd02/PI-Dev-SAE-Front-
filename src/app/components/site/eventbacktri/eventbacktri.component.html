@@ -1,0 +1,301 @@
+
+<div class="preloader">
+    <div class="lds-ripple">
+      <div class="lds-pos"></div>
+      <div class="lds-pos"></div>
+    </div>
+  </div>
+  <!-- ============================================================== -->
+  <!-- Main wrapper - style you can find in pages.scss -->
+  <!-- ============================================================== -->
+  <div
+    id="main-wrapper"
+    data-layout="vertical"
+    data-navbarbg="skin5"
+    data-sidebartype="full"
+    data-sidebar-position="absolute"
+    data-header-position="absolute"
+    data-boxed-layout="full"
+  >
+  
+<app-back></app-back>
+
+<div class="page-wrapper">
+    <!-- ============================================================== -->
+    <!-- Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <div class="page-breadcrumb">
+      <div class="row">
+        <div class="col-12 d-flex no-block align-items-center">
+          <h4 class="page-title"><a href="eventback">Liste</a></h4>
+          <div class="ms-auto text-end">
+            <nav aria-label="breadcrumb">
+              <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">
+                  Library
+                </li>
+              </ol>
+            </nav>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+    <!-- ============================================================== -->
+    <!-- End Bread crumb and right sidebar toggle -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Container fluid  -->
+    <!-- ============================================================== -->
+    <div class="container-fluid">
+      <!-- ============================================================== -->
+      <!-- Start Page Content -->
+      <!-- ============================================================== -->
+      <div class="row">
+        <div class="col-12">
+          
+          <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Events</h5>
+                
+                <div class="table-responsive">
+                    
+                  <table
+                    id="zero_config"
+                    class="table table-striped table-bordered"
+                  >
+                    <thead>
+                  <tr>
+                    <th>Name</th>
+                    <th>localisation</th>
+                    <th>nb  participants</th>
+                    <th>nb min participants</th>
+                    <th>date debut</th>
+                    <th>date fin</th>
+                    <th>image</th>
+                    <th>update</th>
+                    <th>supprimer</th>
+                  </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let event of events|paginate:{
+
+                      itemsPerPage: tableSize,
+currentPage: page,
+totalItems : count }; let i=index ">
+                    <td>{{event.name}}</td>
+                    <td>{{event.location}}</td>
+                    <td>{{event.nbplace}}</td>
+                    <td>{{event.nbplacemin}}</td>
+                    
+                    <td>{{event.datedebut | date: 'MM-dd-yyyy'}}</td>
+                    
+                            <td>{{event.datefin | date: 'MM-dd-yyyy'}}</td>
+                            <td> <img src="assets/{{event.image}}" alt="{{event.name}}.png" style="height: 100px; width: 100px" /></td>
+                          <td>   <button (click)="updateevent(event.id)" type="button" class="btn btn-primary m-t-15 waves-effect">update</button></td>
+                              <td><button (click)="deleteEvent(event.id)" type="button" class="btn
+                                btn-prima ry">DELETE</button></td>
+                  </tr>
+                </tbody>
+               </table>
+               
+                <div>
+                  <pagination-controls
+  previousLabel="Prev"
+  nextLabel="Next"
+  (pageChange)="onTableDataChange ($event)" ></pagination-controls>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ============================================================== -->
+      <!-- End PAge Content -->
+      <!-- ============================================================== -->
+      <!-- ============================================================== -->
+      <!-- Right sidebar -->
+      <!-- ============================================================== -->
+      <!-- .right-sidebar -->
+      <!-- ============================================================== -->
+      <!-- End Right sidebar -->
+      <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Container fluid  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- footer -->
+    <!-- ============================================================== -->
+   
+    <!-- ============================================================== -->
+    <!-- End footer -->
+    <!-- ============================================================== -->
+    <div class="body">
+      <form class="form-horizontal">
+      <div class="row clearfix">
+      <div class="col-lg-2 col-md-2 col-sm-4 col-xs
+      
+      -5 form-control-label">
+      
+      <label for="first_name"> Name</label>
+      
+      </div>
+      <div class="col-lg-10 col-md-10 col-sm-8 col
+      
+      xs-7">
+      
+      <div class="form-group">
+      <div class="form-line">
+      <input name="name" [(ngModel)]="event.name" type="text" id="name"
+      class="form-control" placeholder="Enter your first name">
+      
+      </div>
+      </div>
+      </div>
+      </div>
+      <div class="row clearfix">
+      <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+      
+          <label for="last_name">Location </label>
+      </div>
+      <div class="col-lg-10 col-md-10 col-sm-8 col
+      
+      xs-7">
+      
+      <div class="form-group">
+      <div class="form-line">
+      <input name="location" [(ngModel)]="event.location" type="text" id="location" class="form-control"
+      placeholder="Enter your last name">
+      </div>
+      </div>
+      </div>
+      </div>
+      <div class="row clearfix">
+      <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+          <label for="last_name">date debut </label>
+      </div>
+      <div class="col-lg-10 col-md-10 col-sm-8 col
+      
+      xs-7">
+      
+      <div class="form-group">
+      <div class="form-line">
+      <input name="location" [(ngModel)]="event.datedebut" type="date" id="location" class="form-control"
+      placeholder="Date Debut">
+      </div>
+      </div>
+      </div>
+      </div>
+      <div class="row clearfix">
+      <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+          <label for="last_name">date fin </label>
+      </div>
+      <div class="col-lg-10 col-md-10 col-sm-8 col
+      
+      xs-7">
+      
+      <div class="form-group">
+      <div class="form-line">
+      <input name="location" [(ngModel)]="event.datefin" type="date" id="location" class="form-control"
+      placeholder="Date Fin">
+      </div>
+      </div>
+      </div>
+      </div>
+      <div class="row clearfix">
+      <div class="col-lg-2 col-md-2 col-sm-4 col-xs-5 form-control-label">
+      <label for="email_address_2">description</label>
+      
+      </div>
+      <div class="col-lg-10 col-md-10 col-sm-8 col xs-7">
+      
+      <div class="form-group">
+      <div class="form-line">
+      <input name="email" [(ngModel)]="event.description" type="text" id="email_address_2" class="form-control"
+      pla ceholder="Enter your email address">
+      </div>
+      </div>
+      </div>
+      
+      
+      </div>
+      
+      <div class="row clearfix">
+        <div class="col-lg-2 col-md-2 col-sm-4 col-xs
+        
+        -5 form-control-label">
+        
+        <label for="password_2">summary</label>
+        </div>
+        <div class="col-lg-10 col-md-10 col-sm-8 col
+        
+        xs-7">
+        
+        <div class="form-group">
+        <div class="form-line">
+        <input name="password" [(ngModel)]="event.summary" type="password" id="password_2" class="form-control
+        " placeholder="Enter your password">
+        </div>
+        </div>
+        </div>
+        </div>
+        <div class="row clearfix">
+          <div class="col-lg-2 col-md-2 col-sm-4 col-xs
+          
+          -5 form-control-label">
+          
+          <label for="password_2">image</label>
+          </div>
+          <div class="col-lg-10 col-md-10 col-sm-8 col
+          
+          xs-7">
+          
+          <div class="form-group">
+          <div class="form-line">
+          <input name="file" [(ngModel)]="event.image" type="file" id="password_2" class="form-control
+          " placeholder="Enter your password">
+          </div>
+          </div>
+          </div>
+          </div>
+      <div class="row clearfix">
+      <div class="col-lg-2 col-md-2 col-sm-4 col-xs
+      
+      -5 form-control-label">
+      
+      <label for="role"></label>
+      </div>
+      <div class="col-lg-10 col-md-10 col-sm-8 col
+      
+      xs-7">
+      
+      <div class="form-group">
+      <div class="form-line">
+      </div>
+      </div>
+      </div>
+      </div>
+      <div class="row clearfix">
+      <div class="col-lg-offset-2 col-md-offset-2 c
+      
+      ol-sm-offset-4 col-xs-offset-5">
+      
+      <button (click)="addEvent()" type="button"
+      
+      class="btn btn-primary m-t-15 waves-effect">Add</button>
+      
+      </div>
+      </div>
+      
+      8
+      
+      </form>
+      </div>
+
+</div>
+
+
+  </div>
+  
